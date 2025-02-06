@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Geladeira",
+    "price": 30.00,
+    "stock": 10,
+    "imageIdAsString": "geladeira"
+  },
+  {
+    "name": "Notebook",
+    "price": 49.00,
+    "stock": 10,
+    "imageIdAsString": "notebook"
+  }
+]

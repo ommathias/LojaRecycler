@@ -1,11 +1,13 @@
 package com.example.lojarecycler
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.w3c.dom.Text
 
 class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(){
     override fun onCreateViewHolder(
@@ -21,6 +23,7 @@ class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adap
         val productName: TextView = itemView.findViewById(R.id.productName)
         val productStock: TextView = itemView.findViewById(R.id.productStock)
         val productPrice: TextView = itemView.findViewById(R.id.productPrice)
+        //val productDescription: TextView = itemView.findViewById(R.id.tv_description)
 
     }
 
@@ -30,7 +33,13 @@ class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adap
         holder.productName.text = product.name
         holder.productStock.text = product.stock.toString()
         holder.productPrice.text = "R$ ${product.price}"
+       // holder.productDescription.text = product.description
 
+        holder.itemView.setOnClickListener{
+            val intent = Intent(holder.itemView.context, ProductDetails::class.java)
+            intent.putExtra("product", product)
+
+            holder.itemView.context.startActivity(intent)        }
         }
 
     override fun getItemCount(): Int = productList.size
