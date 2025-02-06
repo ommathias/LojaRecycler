@@ -30,15 +30,15 @@ class ProductDetails : AppCompatActivity() {
 
 
         if (product != null) {
-            binding.tvName.text = product.name
-            binding.tvDescription.text = product.description
-            binding.tvStock.text = product.description
+            binding.tvName.text = "Item: " + product.name
+            binding.tvDescription.text = "Descrição do produto: " + product.description
+            binding.tvStock.text  = "Quantidade em estoque: " + product.stock.toString()
             binding.tvImage.setImageResource(product.imageId)
-            binding.tvPrice.text = "R$ ${product.price}"
+            binding.tvPrice.text = "Preço: R$ ${product.price}"
         }
 
 
-        binding.btBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

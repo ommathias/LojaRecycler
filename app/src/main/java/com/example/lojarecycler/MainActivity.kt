@@ -23,22 +23,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val productList = listOf(
-            Product(
-                name = "Geladeira",
-                price = 30.00,
-                stock = 10,
-                imageId = R.drawable.geladeira,
-                description = "Lorem Ipsum"
-            ),
-            Product(
-                name = "Notebook",
-                price = 49.00,
-                stock = 10,
-                imageId = R.drawable.notebook,
-                description = "Lorem Ipsum"
-            )
-        )
+        val productList = ProductData.getProducts()
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
